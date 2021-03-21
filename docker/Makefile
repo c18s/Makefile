@@ -6,7 +6,7 @@ export DOCKER_BUILD_PATH = Dockerfile ..
 export DOCKER_BUILD_ARGS = --build-arg BUILDKIT_INLINE_CACHE=1
 
 help:
-	@echo "Usage: make -f docker.Makefile [TARGET]"
+	@echo "Usage: make [TARGET]"
 
 docker-pull:
 	docker pull $(DOCKER_IMAGE) 2>/dev/null || true

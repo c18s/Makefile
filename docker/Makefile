@@ -14,6 +14,9 @@ docker-pull:
 docker-push:
 	docker push $(DOCKER_IMAGE)
 
+docker-tag:
+	docker tag $(SOURCE_IMAGE) $(TARGET_IMAGE)
+
 docker-image-prune:
 	docker image prune --force --filter=label=docker-repository=$(DOCKER_REPOSITORY)
 	docker images --filter=label=docker-repository=$(DOCKER_REPOSITORY)

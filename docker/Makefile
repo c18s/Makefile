@@ -1,11 +1,11 @@
-.DEFAULT_GOAL := help
 MAKEFLAGS += --no-print-directory
 
 export DOCKER_BUILDKIT = 1
 export DOCKER_BUILD_PATH = Dockerfile ..
 export DOCKER_BUILD_ARGS = --build-arg BUILDKIT_INLINE_CACHE=1
 
-help:
+docker-help:
+	@echo "Makefile for docker."
 	@echo "Usage: make [TARGET]"
 
 docker-pull:

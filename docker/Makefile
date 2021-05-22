@@ -17,9 +17,12 @@ docker-push:
 docker-tag:
 	docker tag $(SOURCE_IMAGE) $(TARGET_IMAGE)
 
+docker-image-filter:
+	docker images --filter=label=docker-repository=$(DOCKER_REPOSITORY)
+
 docker-image-prune:
 	docker image prune --force --filter=label=docker-repository=$(DOCKER_REPOSITORY)
-	docker images --filter=label=docker-repository=$(DOCKER_REPOSITORY)
+	@make docker-image-filter DOCKER_REPOSITORY=$(DOCKER_REPOSITORY)
 
 docker-build:
 	$(eval override TARGET=$(if $(TARGET), --target $(TARGET),))
